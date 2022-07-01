@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hoppa</title>
+    <link rel="shortcut icon" href="image/hoppa/appscreens/Group 5.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="fonts/icon-font/css/style.css" />
+    <link rel="stylesheet" href="fonts/typography-font/typo.css" />
+    <link rel="stylesheet" href="fonts/fontawesome-5/css/all.css" />
+    <link rel="stylesheet" href="plugins/aos/aos.min.css" />
+    <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="plugins/nice-select/nice-select.min.css" />
+    <link rel="stylesheet" href="plugins/slick/slick.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/color-scheme-3.css" />
+  </head>
+</html>
+<body>
+  <!-- Plugin's Scripts -->
+  <!-- Custom stylesheet -->
+  <script src="js/vendor.min.js"></script>
+  <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
+  <script src="plugins/nice-select/jquery.nice-select.min.js"></script>
+  <script src="plugins/aos/aos.min.js"></script>
+  <script src="plugins/counter-up/jquery.counterup.min.js"></script>
+  <script src="plugins/counter-up/waypoints.min.js"></script>
+  <script src="plugins/slick/slick.min.js"></script>
+  <script src="plugins/skill-bar/skill.bars.jquery.js"></script>
+  <script src="plugins/isotope/isotope.pkgd.min.js"></script>
+  <!-- Activation Script -->
+  <script src="js/custom.js"></script>
+  <script>
+    $(document).ready(function () {
+      function getOS() {
+        console.log(window.navigator)
+        var userAgent = window.navigator.userAgent,
+          platform =
+            window.navigator?.userAgentData?.platform ??
+            window.navigator.platform,
+          macosPlatforms = [
+            'Macintosh',
+            'MacIntel',
+            'MacPPC',
+            'Mac68K',
+            'iPhone',
+            'Mac',
+          ],
+          windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+          iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+          os = null
+        console.log(userAgent)
+        console.log(platform)
+        if (macosPlatforms.indexOf(platform) !== -1) {
+          os = 'Mac OS'
+        } else if (iosPlatforms.indexOf(platform) !== -1) {
+          os = 'iOS'
+        } else if (windowsPlatforms.indexOf(platform) !== -1) {
+          os = 'Windows'
+        } else if (/Android/.test(userAgent)) {
+          os = 'Android'
+        } else if (!os && /Linux/.test(platform)) {
+          os = 'Linux'
+        }
+
+        return os
+      }
+
+      if (getOS() == 'iOS' || getOS() == 'Mac OS') {
+        window.location.href =
+          'https://apps.apple.com/us/app/hoppa/id1606395066?platform=iphone'
+      } else if (getOS() == 'Windows' || getOS() == 'Android') {
+        window.location.href =
+          'https://play.google.com/store/apps/details?id=com.elekse.hoppawalletapp'
+      } else {
+        console.log('device not found to direct')
+      }
+    })
+  </script>
+</body>
